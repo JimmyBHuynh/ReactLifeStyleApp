@@ -7,19 +7,19 @@ import {
     ImageBackground
 } from "react-native";
 import {Header, Left, Right, Body ,Icon, Title, Button} from 'native-base'
-class HomeScreen extends Component {
-    //Button Design
+
+class ToDoScreen extends Component {
+//Button Design
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-            <Icon name="home" style={{fontSize: 24, color: tintColor}} />
+            <Icon name="bicycle" style={{fontSize: 24, color: tintColor}} />
         )
     }
     render(){
         return(
             <View style ={styles.container}>
-             
             <ImageBackground source={require('../assets/images/background.jpg')} style={{width: '100%', height: '100%'}}>
-               {/*Header Tag Contains the navigation menu*/}
+                {/*Header Tag Contains the navigation menu*/}
                 <Header>
                     <Left style = {{flex:0}}>
                         <Icon name = "menu" onPress={()=>this.props.navigation.openDrawer()}/>
@@ -34,7 +34,7 @@ class HomeScreen extends Component {
                 <ScrollView>
                     <View style ={styles.center}>
                    
-                    <Text style = {styles.header}>Home</Text>
+                    <Text style = {styles.header}>TO DO</Text>
                     
                     </View>
                     
@@ -44,7 +44,7 @@ class HomeScreen extends Component {
         );
     }
 }
-export default HomeScreen;
+export default ToDoScreen;
 
 const styles = StyleSheet.create({
     container:{
