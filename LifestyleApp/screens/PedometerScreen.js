@@ -7,7 +7,7 @@ import {
     ImageBackground,
     Image
 } from "react-native";
-import { Container, Header, Left, Right, Body, Icon, Title, Content, Thumbnail, Button } from 'native-base'
+import { Container, Header, Left, Right, Body, Icon, Title, Content, Thumbnail, Button, Footer, FooterTab } from 'native-base'
 
 class PedometerScreen extends Component {
     //Button Design
@@ -49,6 +49,22 @@ class PedometerScreen extends Component {
                                 </View>
                             </ScrollView>
                         </Content>
+                        <Footer>
+                            <FooterTab>
+                                <Button>
+                                    <Icon name="apps" />
+                                    <Text>Today</Text>
+                                </Button>
+                                <Button>
+                                    <Icon name="camera" />
+                                    <Text>Week</Text>
+                                </Button>
+                                <Button active>
+                                    <Icon active name="navigate" />
+                                    <Text>Overall Summary</Text>
+                                </Button>
+                            </FooterTab>
+                        </Footer>
                     </ImageBackground>
                 </View>
             </Container>
