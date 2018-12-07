@@ -8,6 +8,7 @@ import {
     Image
 } from "react-native";
 import { Container, Header, Left, Right, Body, Icon, Title, Content, Thumbnail, Button, Footer, FooterTab } from 'native-base'
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 class PedometerScreen extends Component {
     //Button Design
@@ -17,11 +18,11 @@ class PedometerScreen extends Component {
         )
     }
     render() {
-        const uri = "https://cdn4.iconfinder.com/data/icons/positive-character-traits-alphabet-d/210/positive-d005-512.png";
+        const uri = "https://www.fibodo.com/images/homepageicons/section2/home_runner.png";
         return (
             <Container>
                 <View style={styles.container}>
-                    <ImageBackground source={require('../assets/images/background.jpg')} style={{ width: '100%', height: '100%' }}>
+                    <ImageBackground source={require('../assets/images/darkbg.jpg')} style={{ width: '100%', height: '100%' }}>
                         {/*Header Tag Contains the navigation menu*/}
                         <Header>
                             <Left style={{ flex: 0 }}>
@@ -35,33 +36,48 @@ class PedometerScreen extends Component {
                             </Right>
                         </Header>
                         <Content>
-                            <ScrollView>
                                 <View style={styles.center}>
-                                    <Text style={styles.header}>Pedometer</Text>
+
+                                    <Text style={[styles.marginheader , styles.header]}>Pedometer</Text>
+<Text style={styles.goaltext}>Touch to Start</Text>
                                     <Image
-                                        style={{ width: 150, height: 100 }}
+                                        style={{ width: 150, height: 100, marginTop: 10, marginBottom: 10 }}
                                         resizeMode="contain"
                                         source={{ uri: uri }}
                                     />
-                                    <Text style={styles.header}> 1000 </Text>
-                                    <Text style={styles.text}> steps </Text>
-                                    <Text style={styles.header}>  Goal: 2000 </Text>
+                                    <Text style={[styles.goaltext, styles.marginbottom]}>  Goal: 2000 </Text>
+                                    <Text style={styles.walktext}> 1000 </Text>
+                                    <Text style={[styles.text, styles.marginbottom2]}> steps </Text>
+                                    
+                                    <Grid >
+                             <Col style={styles.center}>
+                             <Icon type="MaterialCommunityIcons" name="run" style={{fontSize: 30, color: 'yellow'}} />
+                             <Text style={styles.titletext}>1.58</Text>
+                             <Text style={styles.smalltext}>Kilometer</Text>
+                             </Col>
+                            <Col style={styles.center}>
+                            <Icon type="MaterialCommunityIcons" name="fire" style={{fontSize: 30, color: 'red'}}/>
+                            <Text style={styles.titletext}>172</Text>
+                            <Text style={styles.smalltext}>Kcal</Text>
+                            </Col>
+                             <Col style={styles.center}>
+                             <Icon type="FontAwesome" name="clock-o" style={{fontSize: 30, color: 'grey'}} />
+                             <Text style={styles.titletext}>00:34</Text>
+                             <Text style={styles.smalltext}>Time</Text>
+                             </Col>
+                                </Grid>
                                 </View>
-                            </ScrollView>
                         </Content>
                         <Footer>
                             <FooterTab>
                                 <Button>
-                                    <Icon name="apps" />
-                                    <Text>Today</Text>
+                                    <Icon type="MaterialCommunityIcons" active name="calendar-today" />
+                                    <Text style={styles.white}>Today</Text>
                                 </Button>
-                                <Button>
-                                    <Icon name="camera" />
-                                    <Text>Week</Text>
-                                </Button>
+
                                 <Button active>
-                                    <Icon active name="navigate" />
-                                    <Text>Overall Summary</Text>
+                                    <Icon type="MaterialCommunityIcons" name="calendar-range" />
+                                    <Text style={styles.white}>Overall Summary</Text>
                                 </Button>
                             </FooterTab>
                         </Footer>
@@ -89,12 +105,45 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
-        fontSize: 25,
-        color: 'white'
+        fontSize: 20,
+        color: 'grey'
     },
     header: {
         fontWeight: 'bold',
         fontSize: 40,
         color: 'white'
+    },
+    titletext: {
+        fontWeight: 'bold',
+        fontSize: 30,
+        color: 'white'
+    },
+    walktext: {
+        fontWeight: 'bold',
+        fontSize: 40,
+        color: 'white'
+    },
+    goaltext: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'white'
+    },
+    marginheader: {
+        marginTop: 20,
+        marginBottom: 20
+    },
+    marginbottom: {
+        marginBottom: 40
+    },
+    marginbottom2: {
+        marginBottom: 50
+    },
+    smalltext: {
+        fontSize: 15,
+        color: 'white',
+        opacity: 0.6
+    },
+    white: {
+     color: 'white'
     }
 })
